@@ -1,0 +1,48 @@
+/* src/app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --brand: 204 26 26;
+    --bg: 255 255 255;
+    --fg: 8 8 8;
+    --muted: 107 114 128;
+    --border: 229 231 235;
+    --card: 249 250 251;
+  }
+  .dark {
+    --bg: 8 8 8;
+    --fg: 255 255 255;
+    --muted: 156 163 175;
+    --border: 31 41 55;
+    --card: 17 17 17;
+  }
+
+  * { border-color: rgb(var(--border)); }
+  body {
+    @apply bg-[rgb(var(--bg))] text-[rgb(var(--fg))];
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-brand-500 hover:bg-brand-600 text-white font-medium px-5 py-2.5 rounded-lg transition-colors;
+  }
+  .btn-secondary {
+    @apply bg-transparent border border-[rgb(var(--border))] hover:border-[rgb(var(--muted))] text-[rgb(var(--muted))] hover:text-[rgb(var(--fg))] font-medium px-5 py-2.5 rounded-lg transition-colors;
+  }
+  .input-field {
+    @apply w-full bg-[rgb(var(--card))] border border-[rgb(var(--border))] rounded-lg px-4 py-2.5 text-sm placeholder:text-[rgb(var(--muted))] focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all;
+  }
+  .card {
+    @apply bg-[rgb(var(--card))] border border-[rgb(var(--border))] rounded-xl;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { @apply bg-[rgb(var(--border))] rounded-full; }
